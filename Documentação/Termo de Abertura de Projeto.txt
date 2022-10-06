@@ -1,0 +1,35 @@
+Site Tercerizadora de Serviços de Desenvolvimento
+
+- Site para tercerizar serviços de devs, onde uma 
+empresa, irá ofertar um serviço e um dev ofertara a 
+solução para esse serviço.
+
+- Sistema de assinatura para devs solos, grupos e 
+empresas de desenvolvimento.
+
+- Para empresas, no inicio do projeto é pago uma taxa
+pela linkagem com o dev e no final, se for tudo 
+concluído com sucesso, é pago uma outra taxa pela
+qualidade de serviço prestado.
+
+- As empresas combinam com os devs, o valor que será
+pago pelo serviço.
+
+- Os devs, poderão pagar para serem homologados, e terem
+um sinal de verificado, onde terão mais visibilidade e
+confiança das empresas pelo serviço prestado.
+
+- A parte do pagamento do Dev, ele irá meio que fazer
+pequenas tarefas, e conforme essas tarefas forem sendo
+feitas, ele irá recebendo o pagamento.
+
+- Sistema de avalização dos Devs, tanto para ranqueamento
+onde os mais bem avaliados, terão as melhores oportunidades,
+quanto para visibilidade dos mesmos, onde as vagas serão
+ofertadas primeiro para eles.
+
+- Será feito um relatório pelos devs, sobre como foi
+a convivencia e o trabalho naquela empresa, e quando
+algum outro dev for trabalhar para ela, será disponibilizado
+esse relatório para ele saber como é o ambiente de 
+trabalho naquele local.
