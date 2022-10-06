@@ -1,4 +1,4 @@
-Site Tercerizadora de Serviços de Desenvolvimento
+Site Tercerizadora de Serviços de Desenvolvimento 
 
 - Site para tercerizar serviços de devs, onde uma 
 empresa, irá ofertar um serviço e um dev ofertara a 
