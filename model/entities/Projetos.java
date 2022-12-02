@@ -1,9 +1,12 @@
+package model.Entities;
+
+
 public class Projetos {
 
     private int id;
     private String nome;
     private String proposta;
-    private Cliente cliente;
+    private int idCliente;
     
     
     

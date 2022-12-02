@@ -1,3 +1,6 @@
+package model.Entities;
+
+
 public class Adm extends Usuario {
     
     private int idAdm;

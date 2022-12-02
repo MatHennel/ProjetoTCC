@@ -1,3 +1,4 @@
+package model.Entities;
 import java.util.List;
 
 public class Cliente extends Usuario {
@@ -14,6 +15,14 @@ public class Cliente extends Usuario {
         super(nome, telefone, email, senha, cidade);
         
         this.idCliente= idCliente;
+        this.cnpj= cnpj;
+
+    }
+
+    public Cliente(String nome, String telefone, String email, String senha, String cidade, String cnpj) {
+        super(nome, telefone, email, senha, cidade);
+        
+        this.idCliente= -1;
         this.cnpj= cnpj;
 
     }

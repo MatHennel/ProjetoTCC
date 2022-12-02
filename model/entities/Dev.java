@@ -1,3 +1,6 @@
+package model.Entities;
+
+
 import java.time.LocalDate;
 
 public class Dev extends Usuario{
