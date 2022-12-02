@@ -7,18 +7,12 @@ import model.Entities.Cliente;
 
 public class MySQLClienteDAO implements ClienteDAO{
 
-    private Conexao conexao;
 
-    
-
-    public MySQLClienteDAO(Conexao conexao){
-        this.conexao = conexao;
-    }
 
     @Override
     public Boolean cadastrarCliente(Cliente cliente) {
         try {
-            Connection con = conexao.getConnection();
+            Connection con = new Conexao().conectaBd();
             PreparedStatement pstm = con.prepareStatement("insert into cliente_DevEConnection(nome,telefone,email,senha,cidade,cnpj) values (?,?,?,?,?,?)");
             pstm.setString(1, cliente.getNome());
             pstm.setString(2, cliente.getTelefone());

@@ -10,11 +10,21 @@ public class App {
         int fim = 0;
         Scanner scan = new Scanner(System.in);
 
-        Conexao conexao = Conexao.getInstance();
-        ClienteDAO clienteDAO = new MySQLClienteDAO(conexao);
+        Conexao c = new Conexao();
+        ClienteDAO clienteDAO = new MySQLClienteDAO();
 
         
         int opcao;
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            c.conectaBd();
+
+            System.out.println("OK");
+
+        } catch (Exception e) {
+            System.out.println("Driver do banco de dados localizado");
+        }
 
         
 

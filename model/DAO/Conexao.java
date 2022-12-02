@@ -5,38 +5,28 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-    private static final int MAX_CONEXOES=5;
+    public Connection conectaBd(){
+        Connection conn = null;
+        
+        
 
-    private static Conexao instance;
+        try {
+           
+            conn = DriverManager.getConnection(
+                "jdbc:mysql://wagnerweinert.com.br/tads21_matheushennel",
+                "tads21_matheushennel",
+                "tads21_matheushennel"
 
-    private Connection[] conexoes;
 
-    protected Conexao(){
-        conexoes = new Connection[MAX_CONEXOES];
-    }
+            );
+            System.out.println("CONECTADO AO BANCO");
+            return conn;
 
-    public static Conexao getInstance(){
-        if(instance == null){
-            instance = new Conexao();
+        } catch (SQLException e) {
+            System.out.println("erro");
+            
+            return null;
         }
-
-        return instance;
-    }
-    
-
-
-    public Connection getConnection() throws SQLException{
-
-
-        for(int i=0;i<conexoes.length;i++){
-            if(conexoes[i]==null || conexoes[i].isClosed()){
-                conexoes[i] = DriverManager.getConnection(
-                    "jdbc:mysql://wagnerweinert.com.br/tads21_matheushennel",
-                    "tads21_matheushennel",
-                    "tads21_matheushennel");
-                return conexoes[i];
-            }
-        }
-        throw new SQLException("Não há conexões disponíveis! Esqueceu de fechar?");
+        
     }
 }
