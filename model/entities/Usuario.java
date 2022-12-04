@@ -1,4 +1,4 @@
-
+package model.Entities;
 public abstract class Usuario {
 
     private String nome;
