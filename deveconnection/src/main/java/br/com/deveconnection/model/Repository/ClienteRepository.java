@@ -1,7 +1,7 @@
-package deveconnection.model.Repository;
+package br.com.deveconnection.model.Repository;
 
-import deveconnection.model.DAO.ClienteDAO;
-import deveconnection.model.Entities.Cliente;
+import br.com.deveconnection.model.DAO.ClienteDAO;
+import br.com.deveconnection.model.Entities.Cliente;
 
 public class ClienteRepository {
     private ClienteDAO dao;

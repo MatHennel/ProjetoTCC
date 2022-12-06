@@ -1,4 +1,4 @@
-package deveconnection.model.DAO;
+package br.com.deveconnection.model.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,9 +27,11 @@ public class Conexao {
 
         for(int i=0;i<conexoes.length;i++){
             if(conexoes[i]==null || conexoes[i].isClosed()){
-                conexoes[i] = DriverManager.getConnection("jdbc:mysql://wagnerweinert.com.br/tads21_matheushennel",
-                "tads21_matheushennel",
-                "tads21_matheushennel");
+                conexoes[i] = DriverManager.getConnection(
+                    "jdbc:mysql://wagnerweinert.com.br/tads21_matheushennel",
+                    "tads21_matheushennel",
+                    "tads21_matheushennel"
+    );
                 return conexoes[i];
             }
         }

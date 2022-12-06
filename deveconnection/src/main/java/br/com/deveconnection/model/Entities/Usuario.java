@@ -1,4 +1,4 @@
-package deveconnection.model.Entities;
+package br.com.deveconnection.model.Entities;
 public abstract class Usuario {
 
     private String nome;

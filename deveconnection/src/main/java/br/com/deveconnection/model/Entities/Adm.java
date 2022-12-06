@@ -1,4 +1,4 @@
-package deveconnection.model.Entities;
+package br.com.deveconnection.model.Entities;
 
 
 public class Adm extends Usuario {

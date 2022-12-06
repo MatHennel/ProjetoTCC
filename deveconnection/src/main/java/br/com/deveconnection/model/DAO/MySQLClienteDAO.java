@@ -1,9 +1,9 @@
-package deveconnection.model.DAO;
+package br.com.deveconnection.model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import deveconnection.model.Entities.Cliente;
+import br.com.deveconnection.model.Entities.Cliente;
 
 public class MySQLClienteDAO implements ClienteDAO{
 

@@ -1,19 +1,22 @@
-package deveconnection;
+package br.com.deveconnection;
 
 import java.util.Scanner;
 
-import deveconnection.model.DAO.ClienteDAO;
-import deveconnection.model.DAO.Conexao;
-import deveconnection.model.DAO.MySQLClienteDAO;
-import deveconnection.model.Entities.Cliente;
-import deveconnection.model.Repository.ClienteRepository;
+import br.com.deveconnection.model.DAO.ClienteDAO;
+import br.com.deveconnection.model.DAO.Conexao;
+import br.com.deveconnection.model.DAO.MySQLClienteDAO;
+import br.com.deveconnection.model.Entities.Cliente;
+import br.com.deveconnection.model.Repository.ClienteRepository;
 
 public class App {
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws Exception {
         final int fim = 0;
         final Scanner scan = new Scanner(System.in);
 
         final Conexao conexao = Conexao.getInstance();
+
+        conexao.getConnection();
+
         final ClienteDAO clienteDAO = new MySQLClienteDAO(conexao);
         final ClienteRepository clienteRepository = new ClienteRepository(clienteDAO);
 

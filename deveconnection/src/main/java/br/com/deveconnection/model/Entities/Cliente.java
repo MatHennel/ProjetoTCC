@@ -1,4 +1,4 @@
-package deveconnection.model.Entities;
+package br.com.deveconnection.model.Entities;
 import java.util.List;
 
 public class Cliente extends Usuario {
