@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 import model.DAO.ClienteDAO;
@@ -6,10 +7,9 @@ import model.DAO.MySQLClienteDAO;
 import model.Entities.Cliente;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int fim = 0;
         Scanner scan = new Scanner(System.in);
-
         Conexao c = new Conexao();
         ClienteDAO clienteDAO = new MySQLClienteDAO();
 
