@@ -1,4 +1,4 @@
-package model.Entities;
+package deveconnection.model.Entities;
 
 
 import java.time.LocalDate;

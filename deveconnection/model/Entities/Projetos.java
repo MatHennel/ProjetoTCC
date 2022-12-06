@@ -1,4 +1,4 @@
-package model.Entities;
+package deveconnection.model.Entities;
 
 
 public class Projetos {
@@ -6,7 +6,8 @@ public class Projetos {
     private int id;
     private String nome;
     private String proposta;
-    private int idCliente;
+    private Cliente cliente;
+    private Dev dev;
     
     
     
@@ -16,6 +17,10 @@ public class Projetos {
         this.nome = nome;
         this.proposta = proposta;
         this.cliente = cliente;
+    }
+
+    public void contratarDev(Dev dev){
+        this.dev = dev;
     }
 
 

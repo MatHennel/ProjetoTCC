@@ -1,5 +1,6 @@
-package model.DAO;
-import model.Entities.Cliente;
+package deveconnection.model.DAO;
+
+import deveconnection.model.Entities.Cliente;
 
 
 

@@ -1,18 +1,22 @@
-package model.DAO;
+package deveconnection.model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import model.Entities.Cliente;
+import deveconnection.model.Entities.Cliente;
 
 public class MySQLClienteDAO implements ClienteDAO{
+
+    private Conexao conexao;
+
+    
 
 
 
     @Override
     public Boolean cadastrarCliente(Cliente cliente) {
         try {
-            Connection con = new Conexao().conectaBd();
+            Connection con = conexao.getConnection();
             PreparedStatement pstm = con.prepareStatement("insert into cliente_DevEConnection(nome,telefone,email,senha,cidade,cnpj) values (?,?,?,?,?,?)");
             pstm.setString(1, cliente.getNome());
             pstm.setString(2, cliente.getTelefone());
@@ -28,9 +32,13 @@ public class MySQLClienteDAO implements ClienteDAO{
 
             return true;
         } catch (Exception e) {
-            System.out.println("Erro" + e);
+            System.out.println("Erro: " + e);
             return false;
         }
+    }
+
+    public MySQLClienteDAO(Conexao conexao) {
+        this.conexao = conexao;
     }
     
 }
