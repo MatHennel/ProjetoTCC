@@ -1,5 +1,6 @@
 package br.com.deveconnection;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import br.com.deveconnection.model.DAO.ClienteDAO;
@@ -9,6 +10,27 @@ import br.com.deveconnection.model.Entities.Cliente;
 import br.com.deveconnection.model.Repository.ClienteRepository;
 
 public class App {
+
+    public static void testaCadastroDev(){
+        String nome = "Zé";
+        String email = "ze@teste.com";
+        String telefone = "9995999";
+        String senha = "123123";
+        LocalDate data = LocalDate.of(2010, 1, 1);
+        String cidade = "curitiba";
+        String competencias = "Desenvolvedor java junior, a um ano";
+
+        
+
+        //dao.cadastrar(usuario);
+
+
+    }
+
+
+
+
+
     public static void main(final String[] args) throws Exception {
         final int fim = 0;
         final Scanner scan = new Scanner(System.in);
@@ -26,6 +48,7 @@ public class App {
             System.out.println("Bem vindo ao DevEConnection");
             System.out.println("----------------------------");
             System.out.println("1> Cadastrar Cliente");
+            System.out.println("2> Cadastrar Dev");
             opcao = scan.nextInt();
 
             switch (opcao) {
@@ -55,9 +78,9 @@ public class App {
                     System.out.println("Cnpj");
                     cnpj = scan.next();
 
-                    final Cliente cliente = new Cliente(nome, telefone, email, senha, cidade, cnpj);
+                    Cliente cliente = new Cliente(nome, telefone, email, senha, cidade, cnpj);
 
-                    final Boolean cadastro = clienteRepository.cadastrarCliente(cliente);
+                    Boolean cadastro = clienteRepository.cadastrarCliente(cliente);
 
                         if(cadastro){
                             System.out.println("Cadastro realizado");
@@ -66,6 +89,17 @@ public class App {
                         }
 
                     break;
+
+                case 2:
+
+                        
+
+
+    
+
+                        break;
+
+                
             }
         }
     }
