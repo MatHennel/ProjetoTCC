@@ -5,13 +5,17 @@ import java.sql.PreparedStatement;
 
 import br.com.deveconnection.model.Entities.Cliente;
 
-public class MySQLClienteDAO implements ClienteDAO{
+public class JDBCClienteDAO implements ClienteDAO{
 
     private Conexao conexao;
 
     
+    public JDBCClienteDAO(Conexao conexao) {
+        this.conexao = conexao;
+    }
 
 
+    
 
     @Override
     public Boolean cadastrarCliente(Cliente cliente) {
@@ -37,8 +41,6 @@ public class MySQLClienteDAO implements ClienteDAO{
         }
     }
 
-    public MySQLClienteDAO(Conexao conexao) {
-        this.conexao = conexao;
-    }
+    
     
 }
