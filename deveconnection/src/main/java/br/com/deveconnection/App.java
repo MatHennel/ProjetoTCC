@@ -1,6 +1,8 @@
 package br.com.deveconnection;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import br.com.deveconnection.model.DAO.ClienteDAO;
@@ -35,6 +37,7 @@ public class App {
             System.out.println("----------------------------");
             System.out.println("1> Cadastrar Cliente");
             System.out.println("2> Cadastro dev");
+            System.out.println("3> Listar Devs");
 
             opcao = scan.nextInt();
 
@@ -80,14 +83,28 @@ public class App {
 
                 case 2:
 
-                    Dev dev = new Dev("Matheus", "1111", "math@!", "11111", "cwb",
-                            "front end, full stack, muitas palvras d exempl",
-                            LocalDate.of(1, 2, 3), "sadas");
+                    Dev dev = new Dev("Lucas", "2222", "lucas@!", "41231", "cwb",
+                            "back end, full stack, muitas palvras d exempl",
+                            LocalDate.of(2002, 10, 05), "sadas");
 
                     if (devRepository.cadastrarDev(dev)) {
                         System.out.println("Cdastro realziado");
                     } else {
                         System.out.println("Erro cadastro");
+                    }
+
+                    break;
+
+                case 3:
+                    
+                    List<Dev> listaDev = new ArrayList<>();
+                    
+                    listaDev = clienteRepository.visualizarDevsDisponiveisParaTrabalho();
+
+                    if(listaDev == null){
+                        System.out.println("Nao tem devs");
+                    }else{
+                        System.out.println(listaDev);
                     }
 
                     break;

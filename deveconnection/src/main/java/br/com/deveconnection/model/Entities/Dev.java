@@ -84,7 +84,7 @@ public class Dev extends Usuario{
     }
 
     public void alternarStatusPerfil(Boolean status){
-
+        this.status = status;
     }
 
     public List<Projeto>  buscarProjeto(int idProjeto, String nome){
@@ -109,6 +109,28 @@ public class Dev extends Usuario{
 
     public List<Projeto> listarProjetosContratantes(){
         return null;
+    }
+
+    @Override
+    public String toString() {
+        String msg = "Id: " + idDev;
+        msg += "\nNome: " + getNome();
+        msg += "\nTelefone: " + getTelefone();
+        msg += "\nEmail: " + getEmail();
+        msg += "\nSenha: " + getSenha();
+        msg += "\nCidade: " + getCidade();
+        msg += "\nData de Nascimento: " + getDataDeNascimento();
+        msg += "\nCompetencias Dev: " + getCompetenciasDev();
+        msg += "\nStatus: " + getStatus() + "\n\n";
+
+
+
+
+
+
+
+
+        return msg;
     }
 
 

@@ -2,8 +2,15 @@ package br.com.deveconnection.model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.protobuf.Timestamp;
 
 import br.com.deveconnection.model.Entities.Cliente;
+import br.com.deveconnection.model.Entities.Dev;
 
 public class JDBCClienteDAO implements ClienteDAO{
 
@@ -41,6 +48,53 @@ public class JDBCClienteDAO implements ClienteDAO{
             System.out.println("Erro: " + e);
             return false;
         }
+    }
+
+
+
+
+    @Override
+    public List<Dev> visualizarDevsDisponiveisParaTrabalho() {
+        try {
+            List<Dev> devs = new ArrayList<>();
+            Connection con = conexao.getConnection();
+            PreparedStatement pstm = con.prepareStatement("select * from dev_DevEConnection");
+            ResultSet rs= pstm.executeQuery();
+
+            while(rs.next()){
+                int id = rs.getInt(1);
+                String nome = rs.getString(2);
+                String telefone = rs.getString(3);
+                String email = rs.getString(4);
+                int senha = rs.getInt(5);
+                
+                String cidade = rs.getString(6);
+                Double dataNasciD = rs.getDouble(7);
+                LocalDate dataNascimento = LocalDate.ofEpochDay(dataNasciD.intValue());
+                String competenciasdDev = rs.getString(8);
+                Boolean status = rs.getBoolean(9);
+                
+
+                
+
+                
+                
+                Dev dev = new Dev(nome, telefone, email, Integer.toString(senha), cidade,id, competenciasdDev, dataNascimento, competenciasdDev);
+                dev.alternarStatusPerfil(status);
+
+                devs.add(dev);
+
+
+            }
+
+            return devs;
+            
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+
     }
 
     
