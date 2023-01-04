@@ -2,6 +2,7 @@ package br.com.deveconnection.model.Entities;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Projeto {
 
@@ -16,6 +17,9 @@ public class Projeto {
     private LocalDateTime dataPrevFim;
     private Double valor;
     private Boolean status;
+    private List<Missao> missoes;
+
+    
 
     public Projeto(String nome, String proposta, Cliente donoProjeto, String categorias, LocalDateTime dataPostagem,
             LocalDateTime dataPrevIni, LocalDateTime dataPrevFim, Double valor) {
@@ -80,6 +84,14 @@ public class Projeto {
 
     public LocalDateTime getDataPostagem() {
         return dataPostagem;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
    

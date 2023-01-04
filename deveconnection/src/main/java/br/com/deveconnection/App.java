@@ -51,7 +51,7 @@ public class App {
                     nome = scan.next();
 
                     System.out.println("Telefone");
-                    scan.next();
+
                     telefone = scan.next();
 
                     System.out.println("Email");

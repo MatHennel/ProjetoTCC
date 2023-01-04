@@ -21,13 +21,15 @@ public class JDBCClienteDAO implements ClienteDAO{
     public Boolean cadastrarCliente(Cliente cliente) {
         try {
             Connection con = conexao.getConnection();
-            PreparedStatement pstm = con.prepareStatement("insert into cliente_DevEConnection(nome,telefone,email,senha,cidade,cnpj) values (?,?,?,?,?,?)");
+            PreparedStatement pstm = con.prepareStatement("insert into cliente_DevEConnection(nome,telefone,email,senha,cidade,cnpj,status) values (?,?,?,?,?,?,?)");
             pstm.setString(1, cliente.getNome());
             pstm.setString(2, cliente.getTelefone());
             pstm.setString(3, cliente.getEmail());
             pstm.setString(4, cliente.getSenha());
             pstm.setString(5, cliente.getCidade());
             pstm.setString(6, cliente.getCnpj());
+            pstm.setBoolean(7, true);
+
 
             pstm.executeUpdate();
 
