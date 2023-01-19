@@ -9,38 +9,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="ancorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="825.0" styleClass="ancorPane" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="825.0" styleClass="ancorPane" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.deveconnection.PrimaryController">
    <children>
       <Pane prefHeight="60.0" prefWidth="825.0" styleClass="Pane" stylesheets="@css/style.css">
          <children>
-            <ImageView fitHeight="54.0" fitWidth="200.0" layoutX="-6.0">
+            <ImageView fitHeight="54.0" fitWidth="200.0" layoutX="6.0" layoutY="3.0">
                <image>
                   <Image url="@css/Rectangle 11.png" />
                </image>
             </ImageView>
-            <Button layoutX="690.0" layoutY="15.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="104.0" stylesheets="@css/style.css" text="Cadastrar-se">
-               <font>
-                  <Font name="Calibri" size="15.0" />
-               </font>
-            </Button>
          </children>
       </Pane>
-      <Pane layoutX="91.0" layoutY="141.0" prefHeight="265.0" prefWidth="268.0" styleClass="paneLogin" stylesheets="@css/style.css">
+      <Pane layoutX="290.0" layoutY="71.0" prefHeight="431.0" prefWidth="268.0" styleClass="paneLogin" stylesheets="@css/style.css">
          <children>
             <Pane prefHeight="46.0" prefWidth="268.0" styleClass="paneIntoLogin" stylesheets="@css/style.css">
                <children>
-                  <Text fill="WHITE" layoutX="112.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+                  <Text fill="WHITE" layoutX="99.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <TextField layoutX="59.0" layoutY="86.0" stylesheets="@css/style.css" />
-            <Text layoutX="61.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-            <TextField layoutX="59.0" layoutY="146.0" stylesheets="@css/style.css" />
-            <Text layoutX="59.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" />
-            <Button id="button" layoutX="101.0" layoutY="209.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #000000;" stylesheets="@css/style.css" text="Entrar" textFill="WHITE">
+            <TextField layoutX="59.0" layoutY="107.0" />
+            <Text layoutX="60.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+            <TextField fx:id="tfNome" layoutX="60.0" layoutY="154.0" />
+            <Text layoutX="58.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone" />
+            <TextField fx:id="tfTelefone" layoutX="60.0" layoutY="203.0" />
+            <Text layoutX="60.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+            <TextField fx:id="tfEmail" layoutX="60.0" layoutY="251.0" />
+            <Text layoutX="58.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" />
+            <TextField fx:id="tfSenha" layoutX="59.0" layoutY="299.0" />
+            <Text layoutX="58.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade" />
+            <TextField fx:id="tfCidade" layoutX="59.0" layoutY="351.0" />
+            
+            <Text layoutX="58.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cnpj" />
+            <TextField fx:id="tfCnpj" layoutX="59.0" layoutY="351.0" />
+            <Button id="cadastrar" onAction="#cadastrar" layoutX="101.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" styleClass="buttonCadastrar" stylesheets="@css/style.css" text="Cadastrar" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>
