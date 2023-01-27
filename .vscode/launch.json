@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Launcher",
+            "request": "launch",
+            "mainClass": "br.com.deveconnection.Launcher",
+            "projectName": "vendinha2022"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"

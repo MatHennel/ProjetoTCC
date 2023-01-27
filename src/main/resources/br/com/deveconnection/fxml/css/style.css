@@ -1,0 +1,58 @@
+.Pane 
+{
+    
+    -fx-background-color: #000;
+
+}
+
+.ancorPane {
+
+
+    -fx-background-color: rgb(4, 239, 247);
+    
+
+
+}
+
+.button {
+
+
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-background-radius: 20 20 20 20;
+
+
+}
+
+.paneLogin {
+
+
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-background-radius: 20 00 20 00;
+
+
+}
+
+.paneIntoLogin {
+
+
+    -fx-background-color: rgb(0, 0, 0);
+    -fx-background-radius: 20 00 00 00;
+
+
+}
+
+.PaneMenu
+{
+    
+    -fx-background-color: rgb(97, 97, 97);
+
+}
+
+.buttonLogin {
+
+
+    -fx-background-color: rgb(61, 61, 61);
+    -fx-background-radius: 20 20 20 20;
+
+
+}
