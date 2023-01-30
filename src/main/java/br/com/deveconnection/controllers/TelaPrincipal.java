@@ -3,32 +3,23 @@ package br.com.deveconnection.controllers;
 
 
 import br.com.deveconnection.App;
+import br.com.deveconnection.utils.Navigator.BaseAppNavigator;
 import br.com.deveconnection.utils.Navigator.BorderPaneRegion;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class TelaPrincipal extends BaseController {
-    
+public class TelaPrincipal{
 
-    @FXML
-    private void carregarClientes(){
-        App.changeScreenRegion("CLIENTES", BorderPaneRegion.CENTER);
+
+    public void cadastroCliente() {
+        BaseAppNavigator.pushScreen("CLIENTE");
     }
 
-    @FXML
-    private void carregarProdutos(){
-        App.changeScreenRegion("PRODUTOS", BorderPaneRegion.CENTER);
+    public void cadastroDev() {
+        BaseAppNavigator.pushScreen("DEV");
     }
 
-    @FXML
-    private void carregarVendas(){
-        App.changeScreenRegion("VENDAS", BorderPaneRegion.CENTER);
+    public void login() {
+        BaseAppNavigator.pushScreen("LOGIN");
     }
-
-    @FXML
-    private void carregarNovaVenda(){
-        App.changeScreenRegion("NOVAVENDA", BorderPaneRegion.CENTER);
-    }
-
-
-
 }

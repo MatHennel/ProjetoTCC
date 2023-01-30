@@ -1,16 +1,10 @@
 package br.com.deveconnection;
 
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import br.com.deveconnection.controllers.TelaLogin;
 
-import java.io.IOException;
-
-import br.com.deveconnection.controllers.PrimaryController;
-import br.com.deveconnection.controllers.SecondaryController;
+import br.com.deveconnection.controllers.CadastroCliente;
+import br.com.deveconnection.controllers.CadastroDev;
 import br.com.deveconnection.controllers.TelaPrincipal;
 import br.com.deveconnection.model.FabricaConexoes;
 import br.com.deveconnection.model.daos.ClienteDAO;
@@ -71,7 +65,7 @@ public class App extends BaseAppNavigator {
     @Override
     public String getHome() {
         // TODO Auto-generated method stub
-        return "DEV";
+        return "PRINCIPAL";
     }
 
     @Override
@@ -82,9 +76,11 @@ public class App extends BaseAppNavigator {
 
     @Override
     public void registrarTelas() {
-        registraTela("PRINCIPAL", new ScreenRegistryFXML(getClass(), "fxml/principal.fxml", (o)->new TelaPrincipal()));
-        registraTela("CLIENTE", new ScreenRegistryFXML(getClass(), "fxml/primary.fxml", (o)->new PrimaryController(clienteRepository)));
-        registraTela("DEV", new ScreenRegistryFXML(getClass(), "fxml/secondary.fxml", (o->new SecondaryController(devRepository))));
+        registraTela("PRINCIPAL", new ScreenRegistryFXML(getClass(), "fxml/telaprincipal.fxml", (o)->new TelaPrincipal()));
+        registraTela("CLIENTE", new ScreenRegistryFXML(getClass(), "fxml/cadastrocliente.fxml", (o)->new CadastroCliente(clienteRepository)));
+        registraTela("DEV", new ScreenRegistryFXML(getClass(), "fxml/cadastrodev.fxml", (o->new CadastroDev(devRepository))));
+        registraTela("LOGIN", new ScreenRegistryFXML(getClass(), "fxml/login.fxml", (o->new TelaLogin())));
+
         
         //REGISTRAR AS OUTRAS TELAS
 

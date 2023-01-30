@@ -8,6 +8,12 @@
             "type": "java",
             "name": "Launch Launcher",
             "request": "launch",
+            "mainClass": "br.com.deveconnection.Launcher"
+        },
+        {
+            "type": "java",
+            "name": "Launch Launcher",
+            "request": "launch",
             "mainClass": "br.com.deveconnection.Launcher",
             "projectName": "vendinha2022"
         },
