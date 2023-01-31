@@ -45,8 +45,14 @@
             
             <Text layoutX="58.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cnpj" />
             <TextField fx:id="tfCnpj" layoutX="59.0" layoutY="351.0" />
-            <Button id="cadastrar" onAction="#cadastrar" layoutX="101.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" styleClass="buttonLogin" stylesheets="@css/style.css" text="Cadastrar" textFill="WHITE">
+            <Button id="button" onAction="#cadastrar" layoutX="58.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" styleClass="buttonLogin" style="-fx-background-color: #000000;" stylesheets="@css/style.css" text="Cadastrar" textFill="WHITE">
                <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Button>
+
+            <Button onAction="#voltar" id="button" layoutX="147.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #000000;" stylesheets="@css/style.css" text="Voltar" textFill="WHITE">
+            <font>
                   <Font name="Calibri" size="15.0" />
                </font>
             </Button>

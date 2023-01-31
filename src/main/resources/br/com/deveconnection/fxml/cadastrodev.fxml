@@ -64,7 +64,13 @@
             <TextField fx:id="tfEspecialidades" layoutX="239.0" layoutY="154.0" />
             <Text layoutX="238.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Especialidades" />
 
-            <Button  id="buttonLogin" onAction="#cadastrar" layoutX="166.0" layoutY="389.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="106.0" styleClass="buttonLogin" stylesheets="@css/style.css" text="Cadastrar" textFill="WHITE">
+            <Button id="button" onAction="#cadastrar" layoutX="140.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" styleClass="buttonLogin" style="-fx-background-color: #000000;" stylesheets="@css/style.css" text="Cadastrar" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Button>
+
+            <Button onAction="#voltar" id="button" layoutX="230.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #000000;" stylesheets="@css/style.css" text="Voltar" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
                </font>

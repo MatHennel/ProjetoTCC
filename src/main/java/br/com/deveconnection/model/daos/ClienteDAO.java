@@ -12,3 +12,5 @@ public interface ClienteDAO {
 
     public List<Dev> visualizarDevsDisponiveisParaTrabalho();
 }
+
+

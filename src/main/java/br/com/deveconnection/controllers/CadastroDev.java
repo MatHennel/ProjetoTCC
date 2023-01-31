@@ -2,6 +2,8 @@ package br.com.deveconnection.controllers;
 
 import br.com.deveconnection.model.entities.Dev;
 import br.com.deveconnection.model.repositories.DevRepository;
+import br.com.deveconnection.utils.Navigator.BaseAppNavigator;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -60,5 +62,9 @@ public class CadastroDev {
 
     
         
+    }
+
+    public void voltar() {
+        BaseAppNavigator.popScreen();
     }
 }

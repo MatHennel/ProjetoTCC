@@ -3,13 +3,14 @@
     
     -fx-background-color: #000;
 
+
 }
 
 .ancorPane {
 
 
     -fx-background-color: rgb(4, 239, 247);
-    -fx-display: flex;
+
 
     
 
@@ -58,3 +59,4 @@
 
 
 }
+
