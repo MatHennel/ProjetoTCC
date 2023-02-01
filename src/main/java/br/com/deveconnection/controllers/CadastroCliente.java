@@ -57,14 +57,12 @@ public class CadastroCliente {
             a.setAlertType(Alert.AlertType.ERROR);
             a.setHeaderText("Erro ao cadastrar");
             a.show();
-
-
         }else{
-            a.setAlertType(Alert.AlertType.CONFIRMATION);
+            a.setAlertType(Alert.AlertType.INFORMATION);
             a.setHeaderText("Sucesso ao cadastrar");
             a.showAndWait();
-
-            BaseAppNavigator.popScreen();
+            
+            BaseAppNavigator.popScreen();  
             BaseAppNavigator.pushScreen("LOGIN");
 
 

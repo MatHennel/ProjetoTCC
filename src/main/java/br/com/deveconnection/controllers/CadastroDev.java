@@ -5,8 +5,10 @@ import br.com.deveconnection.model.repositories.DevRepository;
 import br.com.deveconnection.utils.Navigator.BaseAppNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class CadastroDev {
 
@@ -46,6 +48,9 @@ public class CadastroDev {
     @FXML
     private void cadastrar(){
 
+        Boolean erro;
+
+        Alert a = new Alert(Alert.AlertType.NONE);
 
 
 
@@ -54,9 +59,19 @@ public class CadastroDev {
 
         Dev dev = new Dev(tfNome.getText(), tfTelefone.getText(), tfEmail.getText(), tfSenha.getText(), tfCidade.getText(), tfCompetencias.getText(), datePicker.getValue(), tfEspecialidades.getText());
 
-        devRepository.cadastrarDev(dev);
+        erro = devRepository.cadastrarDev(dev);
 
-        
+        if(!erro){
+            a.setAlertType(AlertType.ERROR);
+            a.setHeaderText("Erro ao cadastrar");
+            a.show();
+        }else{
+            a.setAlertType(Alert.AlertType.INFORMATION);
+            a.setHeaderText("Sucesso ao cadastrar");
+            a.showAndWait();
+            
+            BaseAppNavigator.popScreen();
+        }
 
         
 

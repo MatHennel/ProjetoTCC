@@ -84,10 +84,17 @@ public class JDBCClienteDAO implements ClienteDAO{
 
                 devs.add(dev);
 
+                pstm.close();
+                con.close();
+                rs.close();
+
 
             }
 
             return devs;
+
+            
+            
             
 
         } catch (Exception e) {
@@ -95,6 +102,52 @@ public class JDBCClienteDAO implements ClienteDAO{
             return null;
         }
 
+    }
+
+
+
+
+    @Override
+    public Cliente login(String email,String senha) {
+        try {
+            Cliente cliente;
+            Connection con = fabricaConexoes.getConnection();
+            PreparedStatement pstm = con.prepareStatement("SELECT * from cliente_DevEConnection where email = ? and senha = ?");
+            
+            pstm.setString(1, email);
+            pstm.setString(2, senha);
+
+            
+            ResultSet rs = pstm.executeQuery();
+
+            
+
+            if(rs == null){
+                return null;
+            }
+                
+                cliente = new Cliente(rs.getString(2), rs.getString(3), email, senha, rs.getString(6), rs.getInt(1), rs.getString(7));
+
+                pstm.close();
+                con.close();
+                rs.close();
+                return cliente;
+
+                
+
+
+               
+
+                
+                
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+
+       
     }
 
     

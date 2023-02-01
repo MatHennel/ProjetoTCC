@@ -31,9 +31,9 @@
                   </Text>
                </children>
             </Pane>
-            <TextField layoutX="59.0" layoutY="86.0" stylesheets="@css/style.css" />
+            <TextField fx:id="tfEmail" layoutX="59.0" layoutY="86.0" stylesheets="@css/style.css" />
             <Text layoutX="61.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-            <TextField layoutX="59.0" layoutY="146.0" stylesheets="@css/style.css" />
+            <TextField fx:id="tfSenha" layoutX="59.0" layoutY="146.0" stylesheets="@css/style.css" />
             <Text layoutX="59.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" />
             <Button onAction="#entrar" id="button" layoutX="65.0" layoutY="209.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #000000;" stylesheets="@css/style.css" text="Entrar" textFill="WHITE">
                <font>

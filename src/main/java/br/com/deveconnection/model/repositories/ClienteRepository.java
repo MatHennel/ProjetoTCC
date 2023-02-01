@@ -21,5 +21,9 @@ public class ClienteRepository {
         return dao.visualizarDevsDisponiveisParaTrabalho();
     }
 
+    public Cliente loginCliente(String email,String senha){
+        return dao.login(email,senha);
+    }
+
 
 }

@@ -11,6 +11,8 @@ public interface ClienteDAO {
     public Boolean cadastrarCliente(Cliente cliente); 
 
     public List<Dev> visualizarDevsDisponiveisParaTrabalho();
+
+    public Cliente login(String email,String senha);
 }
 
 
