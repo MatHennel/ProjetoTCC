@@ -43,23 +43,28 @@ public class CadastroCliente {
 
         Alert a = new Alert(Alert.AlertType.NONE);
 
-        Boolean erro;
+        Result erro;
 
         Cliente cliente = new Cliente(tfNome.getText(), tfTelefone.getText(), tfEmail.getText(), tfSenha.getText(), tfCidade.getText(), tfCnpj.getText());
 
 
 
+
+
         erro = clienteRepository.cadastrarCliente(cliente);
 
+        
 
 
-        if(!erro){
+
+
+        if(erro.getClass().getTypeName().equals("br.com.deveconnection.model.results.FailResult")){
             a.setAlertType(Alert.AlertType.ERROR);
-            a.setHeaderText("Erro ao cadastrar");
+            a.setHeaderText(erro.getMsg());
             a.show();
         }else{
             a.setAlertType(Alert.AlertType.INFORMATION);
-            a.setHeaderText("Sucesso ao cadastrar");
+            a.setHeaderText(erro.getMsg());
             a.showAndWait();
             
             BaseAppNavigator.popScreen();  

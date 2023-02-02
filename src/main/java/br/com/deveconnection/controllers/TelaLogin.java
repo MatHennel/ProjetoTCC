@@ -1,5 +1,6 @@
 package br.com.deveconnection.controllers;
 
+import br.com.deveconnection.model.entities.Cliente;
 import br.com.deveconnection.model.entities.Usuario;
 import br.com.deveconnection.model.repositories.ClienteRepository;
 import br.com.deveconnection.model.repositories.DevRepository;
@@ -13,6 +14,7 @@ public class TelaLogin {
 
     private ClienteRepository cliente;
     private DevRepository dev;
+    private Cliente clienteR;
 
     @FXML
     private TextField tfEmail;
@@ -30,9 +32,11 @@ public class TelaLogin {
 
         Alert a = new Alert(Alert.AlertType.NONE);
 
+        clienteR = cliente.loginCliente(tfEmail.getText(),tfSenha.getText());
+
         
 
-        if(cliente.loginCliente(tfEmail.getText(),tfSenha.getText()) != null){
+        if(clienteR != null){
             a.setAlertType(Alert.AlertType.INFORMATION);
             a.setHeaderText("LOGADO");
             a.showAndWait();
@@ -43,6 +47,9 @@ public class TelaLogin {
             a.setHeaderText("ERRO AO LOGAR");
             a.showAndWait();
         }
+
+        System.out.println(clienteR.getIdCliente());
+        System.out.println(clienteR.getCidade());
     }
 
     public void voltar() {

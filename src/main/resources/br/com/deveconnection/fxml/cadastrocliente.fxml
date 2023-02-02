@@ -31,20 +31,19 @@
                   </Text>
                </children>
             </Pane>
-            <TextField layoutX="59.0" layoutY="107.0" />
+            <TextField fx:id="tfNome" layoutX="59.0" layoutY="107.0" />
             <Text layoutX="60.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
-            <TextField fx:id="tfNome" layoutX="60.0" layoutY="154.0" />
+            <TextField fx:id="tfTelefone" layoutX="60.0" layoutY="154.0" />
             <Text layoutX="58.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone" />
-            <TextField fx:id="tfTelefone" layoutX="60.0" layoutY="203.0" />
+            <TextField fx:id="tfEmail" layoutX="60.0" layoutY="203.0" />
             <Text layoutX="60.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-            <TextField fx:id="tfEmail" layoutX="60.0" layoutY="251.0" />
+            <TextField fx:id="tfSenha" layoutX="60.0" layoutY="251.0" />
             <Text layoutX="58.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" />
-            <TextField fx:id="tfSenha" layoutX="59.0" layoutY="299.0" />
+            <TextField fx:id="tfCidade" layoutX="59.0" layoutY="299.0" />
             <Text layoutX="58.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade" />
-            <TextField fx:id="tfCidade" layoutX="59.0" layoutY="351.0" />
-            
-            <Text layoutX="58.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cnpj" />
             <TextField fx:id="tfCnpj" layoutX="59.0" layoutY="351.0" />
+            <Text layoutX="58.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cnpj" />
+            
             <Button id="button" onAction="#cadastrar" layoutX="58.0" layoutY="389.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" styleClass="buttonLogin" style="-fx-background-color: #000000;" stylesheets="@css/style.css" text="Cadastrar" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="15.0" />
