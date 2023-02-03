@@ -1,6 +1,7 @@
 package br.com.deveconnection.controllers;
 
 import br.com.deveconnection.model.entities.Cliente;
+import br.com.deveconnection.model.entities.Dev;
 import br.com.deveconnection.model.entities.Usuario;
 import br.com.deveconnection.model.repositories.ClienteRepository;
 import br.com.deveconnection.model.repositories.DevRepository;
@@ -15,6 +16,7 @@ public class TelaLogin {
     private ClienteRepository cliente;
     private DevRepository dev;
     private Cliente clienteR;
+    private Dev devR;
 
     @FXML
     private TextField tfEmail;
@@ -33,6 +35,8 @@ public class TelaLogin {
         Alert a = new Alert(Alert.AlertType.NONE);
 
         clienteR = cliente.loginCliente(tfEmail.getText(),tfSenha.getText());
+
+        devR = dev.loginDev(tfEmail.getText(), tfSenha.getText());
 
         
 
