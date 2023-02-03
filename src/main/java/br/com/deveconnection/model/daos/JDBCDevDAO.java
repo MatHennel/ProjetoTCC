@@ -3,6 +3,7 @@ package br.com.deveconnection.model.daos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 
 import br.com.deveconnection.model.FabricaConexoes;
 import br.com.deveconnection.model.entities.Dev;
@@ -34,13 +35,17 @@ public class JDBCDevDAO implements DevDAO {
             pstm.setBoolean(8, true);
 
             PreparedStatement pstm2 = con
-                    .prepareStatement("SELECT email from dev_DevEConnection where email = ?");
+                    .prepareStatement("select email from cliente_DevEConnection where email=? UNION SELECT email from dev_DevEConnection where email=?");
 
             pstm2.setString(1, dev.getEmail());
+            pstm2.setString(2, dev.getEmail());
 
-            PreparedStatement pstm3 = con.prepareStatement("SELECT senha from dev_DevEConnection where senha = ?");
+
+            PreparedStatement pstm3 = con.prepareStatement("select senha from cliente_DevEConnection where senha=? UNION SELECT senha from dev_DevEConnection where senha = ?");
 
             pstm3.setString(1, dev.getSenha());
+            pstm3.setString(2, dev.getSenha());
+
 
             ResultSet rs = pstm2.executeQuery();
             ResultSet rs2 = pstm3.executeQuery();
@@ -101,11 +106,12 @@ public class JDBCDevDAO implements DevDAO {
     }
 
     @Override
-    public Boolean login(String email, String senha) {
+    public Dev login(String email, String senha) {
         try {
+            Dev dev;
             Connection con = fabricaConexoes.getConnection();
             PreparedStatement pstm = con
-                    .prepareStatement("SELECT email , senha from dev_DevEConnection where email = ? and senha = ?");
+                    .prepareStatement("SELECT * from dev_DevEConnection where email = ? and senha = ?");
 
             pstm.setString(1, email);
             pstm.setString(2, senha);
@@ -113,13 +119,23 @@ public class JDBCDevDAO implements DevDAO {
             ResultSet rs = pstm.executeQuery();
 
             if (rs == null) {
-                return false;
+                return null;
+            }else{
+                rs.next();
+                dev = new Dev(rs.getString(2), rs.getString(3), email, senha, rs.getString(6), rs.getInt(1), rs.getString(8), LocalDate.ofEpochDay(rs.getInt(7)), rs.getString(9));
+
             }
-            return true;
+
+            rs.close();
+            pstm.close();
+            con.close();
+
+            return dev;
+            
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return false;
+            return null;
         }
     }
 

@@ -37,13 +37,17 @@ public class JDBCClienteDAO implements ClienteDAO {
             pstm.setBoolean(7, true);
 
             PreparedStatement pstm2 = con
-                    .prepareStatement("SELECT email from cliente_DevEConnection where email = ?");
+                    .prepareStatement("select email from cliente_DevEConnection where email=? UNION SELECT email from dev_DevEConnection where email=?");
 
             pstm2.setString(1, cliente.getEmail());
+            pstm2.setString(2, cliente.getEmail());
 
-            PreparedStatement pstm3 = con.prepareStatement("SELECT senha from cliente_DevEConnection where senha = ?");
+
+            PreparedStatement pstm3 = con.prepareStatement("select senha from cliente_DevEConnection where senha=? UNION SELECT senha from dev_DevEConnection where senha=?");
 
             pstm3.setString(1, cliente.getSenha());
+            pstm3.setString(2, cliente.getSenha());
+
 
             ResultSet rs = pstm2.executeQuery();
             ResultSet rs2 = pstm3.executeQuery();

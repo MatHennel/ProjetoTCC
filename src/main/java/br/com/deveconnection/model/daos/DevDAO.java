@@ -6,6 +6,6 @@ import br.com.deveconnection.model.results.Result;
 public interface DevDAO {
     public Result cadastrarCliente(Dev dev); 
 
-    public Boolean login(String email,String senha);
+    public Dev login(String email,String senha);
     
 }

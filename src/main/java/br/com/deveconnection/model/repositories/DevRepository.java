@@ -16,7 +16,7 @@ public class DevRepository {
 
     }
 
-    public Boolean loginDev(String email,String senha){
+    public Dev loginDev(String email,String senha){
         return dao.login(email,senha);
     }
 
