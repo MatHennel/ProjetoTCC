@@ -1,7 +1,11 @@
 package br.com.deveconnection.controllers;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import br.com.deveconnection.model.entities.Dev;
 import br.com.deveconnection.model.repositories.DevRepository;
+import br.com.deveconnection.model.results.Result;
 import br.com.deveconnection.utils.Navigator.BaseAppNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,29 +52,43 @@ public class CadastroDev {
     @FXML
     private void cadastrar(){
 
-        Boolean erro;
+        String regx = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";  
+
+        Pattern pattern = Pattern.compile(regx);
 
         Alert a = new Alert(Alert.AlertType.NONE);
 
+        Result erro = Result.fail(null);
 
+        String email = tfEmail.getText();
 
+        Matcher matcher = pattern.matcher(email);
 
-        
+        if(matcher.matches() && email.indexOf('.') > 0){
+            Dev dev = new Dev(tfNome.getText(), tfTelefone.getText(), tfEmail.getText(), tfSenha.getText(), tfCidade.getText(), tfCompetencias.getText(), datePicker.getValue(), tfEspecialidades.getText());
 
-        Dev dev = new Dev(tfNome.getText(), tfTelefone.getText(), tfEmail.getText(), tfSenha.getText(), tfCidade.getText(), tfCompetencias.getText(), datePicker.getValue(), tfEspecialidades.getText());
-
-        erro = devRepository.cadastrarDev(dev);
-
-        if(!erro){
+            erro = devRepository.cadastrarDev(dev);
+        }
+        else{
+            erro = Result.fail("Email inválido");
             a.setAlertType(AlertType.ERROR);
-            a.setHeaderText("Erro ao cadastrar");
+            a.setHeaderText(erro.getMsg());
+            a.show();
+        }
+
+        if(erro.getClass().getTypeName().equals("br.com.deveconnection.model.results.FailResult")){
+            a.setAlertType(Alert.AlertType.ERROR);
+            a.setHeaderText(erro.getMsg());
             a.show();
         }else{
             a.setAlertType(Alert.AlertType.INFORMATION);
-            a.setHeaderText("Sucesso ao cadastrar");
+            a.setHeaderText(erro.getMsg());
             a.showAndWait();
             
-            BaseAppNavigator.popScreen();
+            BaseAppNavigator.popScreen();  
+            BaseAppNavigator.pushScreen("LOGIN");
+
+
         }
 
         

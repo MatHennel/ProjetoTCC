@@ -2,6 +2,7 @@ package br.com.deveconnection.model.repositories;
 
 import br.com.deveconnection.model.daos.DevDAO;
 import br.com.deveconnection.model.entities.Dev;
+import br.com.deveconnection.model.results.Result;
 
 public class DevRepository {
     private DevDAO dao;
@@ -10,7 +11,7 @@ public class DevRepository {
         this.dao = dao;
     }
 
-    public Boolean cadastrarDev(Dev dev) {
+    public Result cadastrarDev(Dev dev) {
         return dao.cadastrarCliente(dev);
 
     }

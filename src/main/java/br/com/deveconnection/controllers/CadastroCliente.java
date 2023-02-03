@@ -1,5 +1,8 @@
 package br.com.deveconnection.controllers;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import br.com.deveconnection.model.entities.Cliente;
 import br.com.deveconnection.model.repositories.ClienteRepository;
 import br.com.deveconnection.model.results.Result;
@@ -8,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class CadastroCliente {
 
@@ -41,17 +45,36 @@ public class CadastroCliente {
     @FXML
     private void cadastrar(){
 
+        String regx = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";  
+
+        Pattern pattern = Pattern.compile(regx);
+
         Alert a = new Alert(Alert.AlertType.NONE);
 
-        Result erro;
+        Result erro = Result.fail(null);
 
-        Cliente cliente = new Cliente(tfNome.getText(), tfTelefone.getText(), tfEmail.getText(), tfSenha.getText(), tfCidade.getText(), tfCnpj.getText());
+        String email = tfEmail.getText();
+
+        Matcher matcher = pattern.matcher(email);
+
+        if(matcher.matches() && email.indexOf('.') > 0){
+            Cliente cliente = new Cliente(tfNome.getText(), tfTelefone.getText(), tfEmail.getText(), tfSenha.getText(), tfCidade.getText(), tfCnpj.getText());
+            erro = clienteRepository.cadastrarCliente(cliente);
+        }
+        else{
+            erro = Result.fail("Email inválido");
+            a.setAlertType(AlertType.ERROR);
+            a.setHeaderText(erro.getMsg());
+            a.show();
+        }
+
+        
 
 
 
 
 
-        erro = clienteRepository.cadastrarCliente(cliente);
+        
 
         
 

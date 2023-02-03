@@ -48,8 +48,6 @@ public class TelaLogin {
             a.showAndWait();
         }
 
-        System.out.println(clienteR.getIdCliente());
-        System.out.println(clienteR.getCidade());
     }
 
     public void voltar() {

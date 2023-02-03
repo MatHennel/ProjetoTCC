@@ -36,40 +36,62 @@ public class JDBCClienteDAO implements ClienteDAO {
             pstm.setString(6, cliente.getCnpj());
             pstm.setBoolean(7, true);
 
-            
-
             PreparedStatement pstm2 = con
                     .prepareStatement("SELECT email from cliente_DevEConnection where email = ?");
 
-            pstm2.setString(1, cliente.getSenha());
-            pstm2.setString(2, cliente.getEmail());
+            pstm2.setString(1, cliente.getEmail());
 
             PreparedStatement pstm3 = con.prepareStatement("SELECT senha from cliente_DevEConnection where senha = ?");
 
-            
+            pstm3.setString(1, cliente.getSenha());
 
             ResultSet rs = pstm2.executeQuery();
             ResultSet rs2 = pstm3.executeQuery();
-            
-            
 
             if (!rs.next() && !rs2.next()) {
 
                 
-                pstm.executeUpdate();
-                
+                    pstm.executeUpdate();
+
+                    rs.close();
+                    rs2.close();
+                    pstm.close();
+                    pstm2.close();
+                    pstm3.close();
+                    con.close();
+               
+
                 return Result.success("Cadastro Realizado");
-            } else if (!rs.getString("senha").isEmpty()) {
-                
-                
+            } else if (!rs.next()) {
+
+                rs.close();
+                rs2.close();
+                pstm.close();
+                pstm2.close();
+                pstm3.close();
+                con.close();
+
                 return Result.fail("Senha já existente");
-            } else if (!rs2.getString("email").isEmpty()) {
-                
+            } else if (!rs2.next()) {
+
+                rs.close();
+                rs2.close();
+                pstm.close();
+                pstm2.close();
+                pstm3.close();
+                con.close();
+
                 return Result.fail("Email já existente");
 
             } else {
-                
-               
+
+                rs.close();
+                rs2.close();
+                pstm.close();
+                pstm2.close();
+                pstm3.close();
+                con.close();
+
                 return Result.fail("Email e senha já existente");
 
             }
