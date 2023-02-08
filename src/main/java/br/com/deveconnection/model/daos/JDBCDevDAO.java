@@ -39,33 +39,31 @@ public class JDBCDevDAO implements DevDAO {
             pstm.setBoolean(8, true);
 
             PreparedStatement pstm2 = con
-                    .prepareStatement("select email from cliente_DevEConnection where email=? UNION SELECT email from dev_DevEConnection where email=?");
+                    .prepareStatement(
+                            "select email from cliente_DevEConnection where email=? UNION SELECT email from dev_DevEConnection where email=?");
 
             pstm2.setString(1, dev.getEmail());
             pstm2.setString(2, dev.getEmail());
 
-
-            PreparedStatement pstm3 = con.prepareStatement("select senha from cliente_DevEConnection where senha=? UNION SELECT senha from dev_DevEConnection where senha = ?");
+            PreparedStatement pstm3 = con.prepareStatement(
+                    "select senha from cliente_DevEConnection where senha=? UNION SELECT senha from dev_DevEConnection where senha = ?");
 
             pstm3.setString(1, dev.getSenha());
             pstm3.setString(2, dev.getSenha());
-
 
             ResultSet rs = pstm2.executeQuery();
             ResultSet rs2 = pstm3.executeQuery();
 
             if (!rs.next() && !rs2.next()) {
 
-                
-                    pstm.executeUpdate();
+                pstm.executeUpdate();
 
-                    rs.close();
-                    rs2.close();
-                    pstm.close();
-                    pstm2.close();
-                    pstm3.close();
-                    con.close();
-               
+                rs.close();
+                rs2.close();
+                pstm.close();
+                pstm2.close();
+                pstm3.close();
+                con.close();
 
                 return Result.success("Cadastro Realizado");
             } else if (!rs.next()) {
@@ -124,9 +122,10 @@ public class JDBCDevDAO implements DevDAO {
 
             if (rs == null) {
                 return null;
-            }else{
+            } else {
                 rs.next();
-                dev = new Dev(rs.getString(2), rs.getString(3), email, senha, rs.getString(6), rs.getInt(1), rs.getString(8), LocalDate.ofEpochDay(rs.getInt(7)), rs.getString(9));
+                dev = new Dev(rs.getString(2), rs.getString(3), email, senha, rs.getString(6), rs.getInt(1),
+                        rs.getString(8), LocalDate.ofEpochDay(rs.getInt(7)), rs.getString(9));
 
             }
 
@@ -135,7 +134,6 @@ public class JDBCDevDAO implements DevDAO {
             con.close();
 
             return dev;
-            
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -147,16 +145,16 @@ public class JDBCDevDAO implements DevDAO {
     public List<Dev> listaDev() {
         List<Dev> listaDevs = new ArrayList<>();
         try {
-            
-            
+
             Connection con = fabricaConexoes.getConnection();
             String query = "SELECT nome, telefone, cidade, competencias_dev, status_dev FROM dev_DevEConnection";
             PreparedStatement pstm = con.prepareStatement(query);
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()) {
-                
-                Dev dev = new Dev(rs.getString("nome"), rs.getString("telefone"), rs.getString("cidade"), rs.getString("competencias_dev"));
+
+                Dev dev = new Dev(rs.getString("nome"), rs.getString("telefone"), rs.getString("cidade"),
+                        rs.getString("competencias_dev"));
                 listaDevs.add(dev);
             }
 
@@ -169,8 +167,7 @@ public class JDBCDevDAO implements DevDAO {
         } catch (Exception e) {
             return null;
         }
-        
-        
+
     }
 
 }

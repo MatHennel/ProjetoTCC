@@ -7,10 +7,21 @@ import javafx.scene.control.TableView;
 
 public class TelaListaDev {
 
-    @FXML
-    private TableView<Dev> tvdev;
 
-   
+
+    @FXML
+    private TableColumn<Dev, String> TvCidade;
+
+    @FXML
+    private TableColumn<Dev,String> TvCompetencias;
+
+    @FXML
+    private TableColumn<Dev,String> TvNome;
+
+    @FXML
+    private TableColumn<Dev, String> TvTelefone;
+
+    
 
 }
 

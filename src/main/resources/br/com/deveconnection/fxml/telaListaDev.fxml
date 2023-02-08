@@ -25,6 +25,13 @@
             <Button layoutX="44.0" layoutY="72.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="129.0" text="Listar Dev's" />
          </children>
       </Pane>
-      <TableView fx:id="tvdev" layoutX="291.0" layoutY="116.0" prefHeight="316.0" prefWidth="466.0">
+      <TableView layoutX="291.0" layoutY="116.0" prefHeight="316.0" prefWidth="466.0">
+        <columns>
+          <TableColumn fx:id="TvNome" prefWidth="123.0" text="Nome" />
+          <TableColumn fx:id="TvTelefone" prefWidth="84.0" text="Telefone" />
+            <TableColumn fx:id="TvCidade" prefWidth="81.0" text="Cidade " />
+            <TableColumn fx:id="TvCompetencias" prefWidth="177.0" text="Competencias" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
