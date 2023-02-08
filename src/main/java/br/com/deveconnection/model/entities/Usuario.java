@@ -27,6 +27,13 @@ public abstract class Usuario {
 
     }
 
+    public  Usuario(String nome, String telefone, String cidade) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.cidade = cidade;
+        
+    }
+
     public String getNome() {
         return nome;
     }

@@ -33,6 +33,11 @@ public class Dev extends Usuario{
         this.status = true;
     }
 
+    public Dev(String nome, String telefone, String cidade, String competenciasDev) {
+        super(nome, telefone,cidade);
+        this.competenciasDev = competenciasDev;
+    }
+
     public String getEspecialidades() {
         return especialidades;
     }

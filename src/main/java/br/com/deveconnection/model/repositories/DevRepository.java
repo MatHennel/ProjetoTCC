@@ -1,5 +1,7 @@
 package br.com.deveconnection.model.repositories;
 
+import java.util.List;
+
 import br.com.deveconnection.model.daos.DevDAO;
 import br.com.deveconnection.model.entities.Dev;
 import br.com.deveconnection.model.results.Result;
@@ -18,6 +20,13 @@ public class DevRepository {
 
     public Dev loginDev(String email,String senha){
         return dao.login(email,senha);
+    }
+
+    public List<Dev> listaDevs() {
+
+
+        return dao.listaDev();
+        
     }
 
 }

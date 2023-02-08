@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mysql.cj.protocol.Resultset;
 
 import br.com.deveconnection.model.FabricaConexoes;
 import br.com.deveconnection.model.entities.Dev;
@@ -137,6 +141,36 @@ public class JDBCDevDAO implements DevDAO {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public List<Dev> listaDev() {
+        List<Dev> listaDevs = new ArrayList<>();
+        try {
+            
+            
+            Connection con = fabricaConexoes.getConnection();
+            String query = "SELECT nome, telefone, cidade, competencias_dev, status_dev FROM dev_DevEConnection";
+            PreparedStatement pstm = con.prepareStatement(query);
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                
+                Dev dev = new Dev(rs.getString("nome"), rs.getString("telefone"), rs.getString("cidade"), rs.getString("competencias_dev"));
+                listaDevs.add(dev);
+            }
+
+            rs.close();
+            pstm.close();
+            con.close();
+
+            return listaDevs;
+
+        } catch (Exception e) {
+            return null;
+        }
+        
+        
     }
 
 }
