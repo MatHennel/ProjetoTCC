@@ -10,6 +10,6 @@ public interface DevDAO {
 
     public Dev login(String email,String senha);
 
-    public List<Dev> listaDev();
+    
     
 }

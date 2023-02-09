@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="827.0" style="-fx-background-color: #F7EFEF;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="827.0" style="-fx-background-color: #F7EFEF;" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.deveconnection.controllers.TelaListaDev">
    <children>
       <Pane prefHeight="87.0" prefWidth="827.0" style="-fx-background-color: #000;" stylesheets="@css/style.css">
          <children>
@@ -23,9 +23,10 @@
       <Pane layoutY="87.0" prefHeight="460.0" prefWidth="217.0" style="-fx-background-color: #a9a9a9;" stylesheets="@css/style.css">
          <children>
             <Button layoutX="44.0" layoutY="72.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="129.0" text="Listar Dev's" />
+            <Button onAction="#voltar" layoutX="44.0" layoutY="150.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="129.0" text="Voltar" />
          </children>
       </Pane>
-      <TableView layoutX="291.0" layoutY="116.0" prefHeight="316.0" prefWidth="466.0">
+      <TableView fx:id="tv" layoutX="291.0" layoutY="116.0" prefHeight="316.0" prefWidth="466.0">
         <columns>
           <TableColumn fx:id="TvNome" prefWidth="123.0" text="Nome" />
           <TableColumn fx:id="TvTelefone" prefWidth="84.0" text="Telefone" />

@@ -52,6 +52,10 @@ public class JDBCClienteDAO implements ClienteDAO {
             ResultSet rs = pstm2.executeQuery();
             ResultSet rs2 = pstm3.executeQuery();
 
+
+            
+
+
             if (!rs.next() && !rs2.next()) {
 
                 
@@ -109,41 +113,28 @@ public class JDBCClienteDAO implements ClienteDAO {
 
     @Override
     public List<Dev> visualizarDevsDisponiveisParaTrabalho() {
+        List<Dev> listaDevs = new ArrayList<>();
         try {
-            List<Dev> devs = new ArrayList<>();
+
             Connection con = fabricaConexoes.getConnection();
-            PreparedStatement pstm = con.prepareStatement("select * from dev_DevEConnection");
+            String query = "SELECT nome, telefone, cidade, competencias_dev, status_dev FROM dev_DevEConnection";
+            PreparedStatement pstm = con.prepareStatement(query);
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()) {
-                int id = rs.getInt(1);
-                String nome = rs.getString(2);
-                String telefone = rs.getString(3);
-                String email = rs.getString(4);
-                int senha = rs.getInt(5);
 
-                String cidade = rs.getString(6);
-                Double dataNasciD = rs.getDouble(7);
-                LocalDate dataNascimento = LocalDate.ofEpochDay(dataNasciD.intValue());
-                String competenciasdDev = rs.getString(8);
-                Boolean status = rs.getBoolean(9);
-
-                Dev dev = new Dev(nome, telefone, email, Integer.toString(senha), cidade, id, competenciasdDev,
-                        dataNascimento, competenciasdDev);
-                dev.alternarStatusPerfil(status);
-
-                devs.add(dev);
-
-                rs.close();
-                pstm.close();
-                con.close();
-
+                Dev dev = new Dev(rs.getString("nome"), rs.getString("telefone"), rs.getString("cidade"),
+                        rs.getString("competencias_dev"));
+                listaDevs.add(dev);
             }
 
-            return devs;
+            rs.close();
+            pstm.close();
+            con.close();
+
+            return listaDevs;
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             return null;
         }
 

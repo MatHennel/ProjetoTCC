@@ -22,11 +22,5 @@ public class DevRepository {
         return dao.login(email,senha);
     }
 
-    public List<Dev> listaDevs() {
-
-
-        return dao.listaDev();
-        
-    }
 
 }

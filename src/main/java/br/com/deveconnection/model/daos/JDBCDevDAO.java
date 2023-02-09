@@ -141,33 +141,6 @@ public class JDBCDevDAO implements DevDAO {
         }
     }
 
-    @Override
-    public List<Dev> listaDev() {
-        List<Dev> listaDevs = new ArrayList<>();
-        try {
-
-            Connection con = fabricaConexoes.getConnection();
-            String query = "SELECT nome, telefone, cidade, competencias_dev, status_dev FROM dev_DevEConnection";
-            PreparedStatement pstm = con.prepareStatement(query);
-            ResultSet rs = pstm.executeQuery();
-
-            while (rs.next()) {
-
-                Dev dev = new Dev(rs.getString("nome"), rs.getString("telefone"), rs.getString("cidade"),
-                        rs.getString("competencias_dev"));
-                listaDevs.add(dev);
-            }
-
-            rs.close();
-            pstm.close();
-            con.close();
-
-            return listaDevs;
-
-        } catch (Exception e) {
-            return null;
-        }
-
-    }
+   
 
 }

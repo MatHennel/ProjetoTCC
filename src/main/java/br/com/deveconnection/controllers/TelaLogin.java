@@ -45,6 +45,8 @@ public class TelaLogin {
             a.setHeaderText("LOGADO");
             a.showAndWait();
             BaseAppNavigator.popScreen();
+            BaseAppNavigator.pushScreen("LOGINCLIENTE");
+            
         }
         else{
             a.setAlertType(Alert.AlertType.ERROR);

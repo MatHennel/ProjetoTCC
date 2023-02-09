@@ -5,6 +5,7 @@ import br.com.deveconnection.controllers.TelaLogin;
 
 import br.com.deveconnection.controllers.CadastroCliente;
 import br.com.deveconnection.controllers.CadastroDev;
+import br.com.deveconnection.controllers.TelaListaDev;
 import br.com.deveconnection.controllers.TelaPrincipal;
 import br.com.deveconnection.model.FabricaConexoes;
 import br.com.deveconnection.model.daos.ClienteDAO;
@@ -80,6 +81,7 @@ public class App extends BaseAppNavigator {
         registraTela("CLIENTE", new ScreenRegistryFXML(getClass(), "fxml/cadastrocliente.fxml", (o)->new CadastroCliente(clienteRepository)));
         registraTela("DEV", new ScreenRegistryFXML(getClass(), "fxml/cadastrodev.fxml", (o->new CadastroDev(devRepository))));
         registraTela("LOGIN", new ScreenRegistryFXML(getClass(), "fxml/login.fxml", (o->new TelaLogin(clienteRepository,devRepository))));
+        registraTela("LOGINCLIENTE", new ScreenRegistryFXML(getClass(), "fxml/telaListaDev.fxml", o->new TelaListaDev(clienteRepository)));
 
         
         //REGISTRAR AS OUTRAS TELAS
