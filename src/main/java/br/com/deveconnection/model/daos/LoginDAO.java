@@ -32,8 +32,18 @@ public class LoginDAO {
             
 
             if(rs == null && rs2 == null){
+                rs.close();
+                rs2.close();
+                pstm.close();
+                pstm2.close();
+                con.close();
                 return null;
             }else{
+                rs.close();
+                rs2.close();
+                pstm.close();
+                pstm2.close();
+                con.close();
                 return usuario;
             }
             

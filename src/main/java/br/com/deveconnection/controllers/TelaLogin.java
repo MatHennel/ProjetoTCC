@@ -45,7 +45,14 @@ public class TelaLogin {
             a.setHeaderText("LOGADO");
             a.showAndWait();
             BaseAppNavigator.popScreen();
-            BaseAppNavigator.pushScreen("LOGINCLIENTE");
+            BaseAppNavigator.pushScreen("TELAPC");
+            TelaPC.setCliente(clienteR);
+            
+        }else if(devR != null){
+            a.setAlertType(Alert.AlertType.INFORMATION);
+            a.setHeaderText("LOGADO");
+            a.showAndWait();
+            BaseAppNavigator.popScreen();
             
         }
         else{

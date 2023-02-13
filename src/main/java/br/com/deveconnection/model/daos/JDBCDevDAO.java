@@ -54,8 +54,20 @@ public class JDBCDevDAO implements DevDAO {
             ResultSet rs = pstm2.executeQuery();
             ResultSet rs2 = pstm3.executeQuery();
 
-            if (!rs.next() && !rs2.next()) {
+            int email;
+            int senha;
 
+            for ( email = 0; rs.next(); email++) {
+               
+            }
+
+            for ( senha = 0; rs2.next(); senha++) {
+               
+            }
+
+            if (email == 0 && senha == 0) {
+
+                
                 pstm.executeUpdate();
 
                 rs.close();
@@ -64,45 +76,48 @@ public class JDBCDevDAO implements DevDAO {
                 pstm2.close();
                 pstm3.close();
                 con.close();
+           
 
-                return Result.success("Cadastro Realizado");
-            } else if (!rs.next()) {
+            return Result.success("Cadastro Realizado");
+        } else if (email != 0 && senha != 0) {
 
-                rs.close();
-                rs2.close();
-                pstm.close();
-                pstm2.close();
-                pstm3.close();
-                con.close();
+            rs.close();
+            rs2.close();
+            pstm.close();
+            pstm2.close();
+            pstm3.close();
+            con.close();
 
-                return Result.fail("Senha já existente");
-            } else if (!rs2.next()) {
+            return Result.fail("Email e senha já existente");
+        } else if (email != 0) {
 
-                rs.close();
-                rs2.close();
-                pstm.close();
-                pstm2.close();
-                pstm3.close();
-                con.close();
+            rs.close();
+            rs2.close();
+            pstm.close();
+            pstm2.close();
+            pstm3.close();
+            con.close();
 
-                return Result.fail("Email já existente");
+            return Result.fail("Email já existente");
 
-            } else {
+        }else if(senha != 0){
 
-                rs.close();
-                rs2.close();
-                pstm.close();
-                pstm2.close();
-                pstm3.close();
-                con.close();
+            rs.close();
+            rs2.close();
+            pstm.close();
+            pstm2.close();
+            pstm3.close();
+            con.close();
 
-                return Result.fail("Email e senha já existente");
+            return Result.fail("Senha já existente");
 
-            }
+        }else{
+            return Result.fail("Nao foi possivel cadastrar");
+        }
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
+            System.out.println("Erro: " + e);
+            return Result.fail("Erro ao cadastrar");
         }
 
     }
@@ -119,11 +134,20 @@ public class JDBCDevDAO implements DevDAO {
             pstm.setString(2, senha);
 
             ResultSet rs = pstm.executeQuery();
+            
 
-            if (rs == null) {
+
+
+           
+            
+
+            if (rs.next() == false) {
+                rs.close();
+                pstm.close();
+                con.close();
                 return null;
             } else {
-                rs.next();
+                
                 dev = new Dev(rs.getString(2), rs.getString(3), email, senha, rs.getString(6), rs.getInt(1),
                         rs.getString(8), LocalDate.ofEpochDay(rs.getInt(7)), rs.getString(9));
 

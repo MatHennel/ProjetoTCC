@@ -52,11 +52,19 @@ public class JDBCClienteDAO implements ClienteDAO {
             ResultSet rs = pstm2.executeQuery();
             ResultSet rs2 = pstm3.executeQuery();
 
+            int email;
+            int senha;
 
-            
+            for ( email = 0; rs.next(); email++) {
+                
+            }
 
+            for ( senha = 0; rs2.next(); senha++) {
+                
+            }
+    
 
-            if (!rs.next() && !rs2.next()) {
+            if (email == 0 && senha == 0) {
 
                 
                     pstm.executeUpdate();
@@ -70,7 +78,7 @@ public class JDBCClienteDAO implements ClienteDAO {
                
 
                 return Result.success("Cadastro Realizado");
-            } else if (!rs.next()) {
+            } else if (email != 0 && senha != 0) {
 
                 rs.close();
                 rs2.close();
@@ -79,8 +87,8 @@ public class JDBCClienteDAO implements ClienteDAO {
                 pstm3.close();
                 con.close();
 
-                return Result.fail("Senha já existente");
-            } else if (!rs2.next()) {
+                return Result.fail("Email e senha já existente");
+            } else if (email != 0) {
 
                 rs.close();
                 rs2.close();
@@ -91,7 +99,7 @@ public class JDBCClienteDAO implements ClienteDAO {
 
                 return Result.fail("Email já existente");
 
-            } else {
+            }else if(senha != 0){
 
                 rs.close();
                 rs2.close();
@@ -100,9 +108,13 @@ public class JDBCClienteDAO implements ClienteDAO {
                 pstm3.close();
                 con.close();
 
-                return Result.fail("Email e senha já existente");
+                return Result.fail("Senha já existente");
 
+            }else{
+                return Result.fail("Nao foi possivel cadastrar");
             }
+
+           
 
         } catch (Exception e) {
             System.out.println("Erro: " + e);
@@ -153,10 +165,19 @@ public class JDBCClienteDAO implements ClienteDAO {
 
             ResultSet rs = pstm.executeQuery();
 
-            if (rs == null) {
+
+            
+
+            
+            
+
+            if (rs.next() == false) {
+                rs.close();
+                pstm.close();
+                con.close();
                 return null;
             } else {
-                rs.next();
+                
                 cliente = new Cliente(rs.getString(2), rs.getString(3), email, senha, rs.getString(6), rs.getInt(1),
                         rs.getString(7));
 

@@ -22,6 +22,7 @@
 
     -fx-background-color: rgb(255, 255, 255);
     -fx-background-radius: 20 20 20 20;
+    -fx-font-weight: bold
 
 
 }
@@ -59,4 +60,18 @@
 
 
 }
+
+.button:hover{
+    -fx-background-color: rgb(181, 255, 255);
+
+}
+
+.imagemPane{
+    -fx-background-image: url("perfil.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+}
+
+
 
