@@ -9,7 +9,10 @@ import br.com.deveconnection.utils.Navigator.BaseAppNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 
 public class TelaLogin {
 
@@ -18,11 +21,20 @@ public class TelaLogin {
     private Cliente clienteR;
     private Dev devR;
 
+  
+
+    
+
     @FXML
     private TextField tfEmail;
 
+   
+
     @FXML
-    private TextField tfSenha;
+    private PasswordField pfSenha;
+
+    
+    
 
 
     public TelaLogin(ClienteRepository cliente, DevRepository dev) {
@@ -32,11 +44,14 @@ public class TelaLogin {
 
     public void entrar() {
 
+        
+       
+
         Alert a = new Alert(Alert.AlertType.NONE);
 
-        clienteR = cliente.loginCliente(tfEmail.getText(),tfSenha.getText());
+        clienteR = cliente.loginCliente(tfEmail.getText(),pfSenha.getText());
 
-        devR = dev.loginDev(tfEmail.getText(), tfSenha.getText());
+        devR = dev.loginDev(tfEmail.getText(), pfSenha.getText());
 
         
 
@@ -53,6 +68,10 @@ public class TelaLogin {
             a.setHeaderText("LOGADO");
             a.showAndWait();
             BaseAppNavigator.popScreen();
+            BaseAppNavigator.pushScreen("TELAPD");
+            TelaPD.setDev(devR);
+
+
             
         }
         else{
@@ -66,4 +85,12 @@ public class TelaLogin {
     public void voltar() {
         BaseAppNavigator.popScreen();
     }
+
+    
+
+    
+
+    
+
+    
 }

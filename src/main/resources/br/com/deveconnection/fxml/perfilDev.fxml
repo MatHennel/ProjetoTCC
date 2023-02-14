@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.deveconnection.controllers.PerfilCliente" stylesheets="@css/style.css">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.deveconnection.controllers.PerfilDev" stylesheets="@css/style.css">
    <children>
       <Pane id="Pane" prefHeight="60.0" prefWidth="825.0" style="-fx-background-color: #000;">
          <children>
@@ -22,7 +22,7 @@
       <Pane layoutY="60.0" prefHeight="126.0" prefWidth="825.0">
          <children>
             <Button onAction="#voltar" layoutX="420.0" layoutY="41.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="89.0" text="VOLTAR" />
-            <Button layoutX="729.0" layoutY="41.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="89.0" text="INATIVAR" />
+            <Button fx:id="inativarButton" onAction="#inativar" layoutX="729.0" layoutY="41.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="89.0" />
             <Button layoutX="628.0" layoutY="41.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="89.0" text="EDITAR" />
             <Button onAction="#sair" layoutX="527.0" layoutY="41.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="89.0" text="SAIR" />
             <Pane styleClass="imagemPane" layoutX="31.0" layoutY="6.0" prefHeight="102.0" prefWidth="106.0"/>

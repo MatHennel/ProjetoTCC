@@ -51,6 +51,11 @@ public class TelaListaDev implements Initializable{
         
     }
 
+    @FXML
+    public void atualizar(){
+        carregaTableView();
+    }
+
     public void carregaTableView(){
         lista = cRepository.visualizarDevsDisponiveisParaTrabalho();
         TvCidade.setCellValueFactory(new PropertyValueFactory<>("cidade"));

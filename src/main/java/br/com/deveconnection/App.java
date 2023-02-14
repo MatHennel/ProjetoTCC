@@ -3,9 +3,11 @@ package br.com.deveconnection;
 
 import br.com.deveconnection.controllers.TelaLogin;
 import br.com.deveconnection.controllers.TelaPC;
+import br.com.deveconnection.controllers.TelaPD;
 import br.com.deveconnection.controllers.CadastroCliente;
 import br.com.deveconnection.controllers.CadastroDev;
 import br.com.deveconnection.controllers.PerfilCliente;
+import br.com.deveconnection.controllers.PerfilDev;
 import br.com.deveconnection.controllers.TelaListaDev;
 import br.com.deveconnection.controllers.TelaPrincipal;
 import br.com.deveconnection.model.FabricaConexoes;
@@ -84,7 +86,11 @@ public class App extends BaseAppNavigator {
         registraTela("LOGIN", new ScreenRegistryFXML(getClass(), "fxml/login.fxml", (o->new TelaLogin(clienteRepository,devRepository))));
         registraTela("LOGINCLIENTE", new ScreenRegistryFXML(getClass(), "fxml/telaListaDev.fxml", o->new TelaListaDev(clienteRepository)));
         registraTela("TELAPC", new ScreenRegistryFXML(getClass(), "fxml/telaPC.fxml", o->new TelaPC()));
+        registraTela("TELAPD", new ScreenRegistryFXML(getClass(), "fxml/telaPD.fxml", o->new TelaPD()));
+
         registraTela("PC", new ScreenRegistryFXML(getClass(), "fxml/perfilCliente.fxml", o->new PerfilCliente()));
+        registraTela("PD", new ScreenRegistryFXML(getClass(), "fxml/perfilDev.fxml", o->new PerfilDev(devRepository)));
+
 
 
         

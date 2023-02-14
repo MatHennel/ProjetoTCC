@@ -33,6 +33,16 @@ public class Dev extends Usuario{
         this.status = true;
     }
 
+    public Dev(String nome, String telefone, String email, String senha, String cidade,int idDev ,
+            String competenciasDev, LocalDate dataDeNascimento, String especialidades,Boolean status) {
+        super(nome, telefone, email, senha, cidade);
+        this.competenciasDev = competenciasDev;
+        this.dataDeNascimento = dataDeNascimento;
+        this.especialidades = especialidades;
+        this.idDev = idDev;
+        this.status = status;
+    }
+
     public Dev(String nome, String telefone, String cidade, String competenciasDev) {
         super(nome, telefone,cidade);
         this.competenciasDev = competenciasDev;

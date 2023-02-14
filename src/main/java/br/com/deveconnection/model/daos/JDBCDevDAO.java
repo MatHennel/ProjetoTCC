@@ -28,15 +28,16 @@ public class JDBCDevDAO implements DevDAO {
 
             Connection con = fabricaConexoes.getConnection();
             PreparedStatement pstm = con.prepareStatement(
-                    "insert into dev_DevEConnection(nome,telefone,email,senha,cidade,data_nascimento,competencias_dev,status_dev) values (?,?,?,?,?,?,?,?)");
+                    "insert into dev_DevEConnection(nome,telefone,email,senha,cidade,data_nascimento,competencias_dev,especialidades_dev,status_dev) values (?,?,?,?,?,?,?,?,?)");
             pstm.setString(1, dev.getNome());
             pstm.setString(2, dev.getTelefone());
             pstm.setString(3, dev.getEmail());
             pstm.setString(4, dev.getSenha());
             pstm.setString(5, dev.getCidade());
             pstm.setDouble(6, dev.getDataDeNascimento().toEpochDay());
-            pstm.setString(7, dev.getCompetenciasDev());
-            pstm.setBoolean(8, true);
+            pstm.setString(8, dev.getCompetenciasDev());
+            pstm.setString(7, dev.getEspecialidades());
+            pstm.setBoolean(9, true);
 
             PreparedStatement pstm2 = con
                     .prepareStatement(
@@ -149,7 +150,7 @@ public class JDBCDevDAO implements DevDAO {
             } else {
                 
                 dev = new Dev(rs.getString(2), rs.getString(3), email, senha, rs.getString(6), rs.getInt(1),
-                        rs.getString(8), LocalDate.ofEpochDay(rs.getInt(7)), rs.getString(9));
+                        rs.getString(8), LocalDate.ofEpochDay(rs.getInt(7)), rs.getString(9),rs.getBoolean(10));
 
             }
 
@@ -163,6 +164,29 @@ public class JDBCDevDAO implements DevDAO {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public void inativar(Boolean inativar, int codigo) {
+        try {   
+            Connection con = fabricaConexoes.getConnection();
+            PreparedStatement pstm = con.prepareStatement("UPDATE  dev_DevEConnection SET status_dev = ? where idDev = ?");
+            System.out.println("\nInativo: " + inativar);
+            System.out.println("\nId: " + codigo);
+
+            pstm.setBoolean(1, inativar);
+            pstm.setInt(2, codigo);
+            pstm.executeUpdate();
+
+            pstm.close();
+            con.close();
+
+
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
     }
 
    

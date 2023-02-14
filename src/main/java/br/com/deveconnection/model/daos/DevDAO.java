@@ -10,6 +10,8 @@ public interface DevDAO {
 
     public Dev login(String email,String senha);
 
+    public void inativar(Boolean inativar,int codigo);
+
     
     
 }

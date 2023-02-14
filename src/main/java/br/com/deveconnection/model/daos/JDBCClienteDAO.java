@@ -129,7 +129,7 @@ public class JDBCClienteDAO implements ClienteDAO {
         try {
 
             Connection con = fabricaConexoes.getConnection();
-            String query = "SELECT nome, telefone, cidade, competencias_dev, status_dev FROM dev_DevEConnection";
+            String query = "SELECT nome, telefone, cidade, competencias_dev, status_dev FROM dev_DevEConnection where status_dev = 1";
             PreparedStatement pstm = con.prepareStatement(query);
             ResultSet rs = pstm.executeQuery();
 

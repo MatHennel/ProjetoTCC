@@ -22,5 +22,11 @@ public class DevRepository {
         return dao.login(email,senha);
     }
 
+    public void inativar(Boolean inativar,int codigo){
+        
+        dao.inativar(inativar,codigo);
+        
+    }
+
 
 }
